@@ -3,7 +3,7 @@ import { ProductsRoutes } from '../products';
 import { AuthRoutes } from '../auth';
 
 export function AppRouter() {
-	const status = 'authenticated';
+	const status = 'not-authenticated';
 	return (
 		<Routes>
 			{status === 'authenticated' ? (
