@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Home } from '../pages/Home';
-import { NavBar } from '../components/Navbar';
 import { Cart } from '../../shoppincart';
+import { NavBar } from '../../ui';
 
 export function ProductsRoutes() {
 	return (
@@ -10,7 +10,7 @@ export function ProductsRoutes() {
 			<Routes>
 				<Route path='/products' element={<Home />} />
 				<Route path='/cart' element={<Cart />} />
-				<Route path='/*' element={<Navigate to='/' />} />
+				<Route path='/*' element={<Navigate to='/products' />} />
 			</Routes>
 		</>
 	);

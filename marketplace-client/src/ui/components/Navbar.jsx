@@ -22,6 +22,7 @@ function MenuItemLink({ children, to, color = 'black' }) {
 		<MenuItem>
 			<ChakraLink
 				color={color}
+				w={'inherit'}
 				style={{ textDecoration: 'none' }}
 				as={Link}
 				to={to}>
