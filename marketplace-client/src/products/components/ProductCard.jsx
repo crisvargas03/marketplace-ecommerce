@@ -1,8 +1,6 @@
 import { Box, Divider, IconButton, Image, Text } from '@chakra-ui/react';
-import { AdminButton } from '../../ui/components/AdminButton';
-import { MoreDetailsButton } from '../../ui/components/MoreDetailsButton';
-import { CategoriesBadges } from '../../ui/components/CategoriesBadges';
 import { AddIcon } from '@chakra-ui/icons';
+import { AdminButton, MoreDetailsButton, CategoriesBadges } from '../../ui';
 
 const property = {
 	imageUrls: [
@@ -16,7 +14,7 @@ const property = {
 	category: ['category 1', 'category 2', 'category 3'],
 };
 
-const isAdmin = false;
+const isAdmin = true;
 
 export function ProductCard() {
 	// TODO: Read data from props {name, imageUrls, description ...etc}

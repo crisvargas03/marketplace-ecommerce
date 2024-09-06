@@ -1,5 +1,6 @@
 import {
 	Box,
+	Button,
 	Container,
 	Divider,
 	Heading,
@@ -9,8 +10,7 @@ import {
 	Text,
 	VStack,
 } from '@chakra-ui/react';
-import { CategoriesBadges } from '../../ui/components/CategoriesBadges';
-import { AddProductToCart } from '../components/AddProductToCart';
+import { CategoriesBadges, AddProductToCart } from '../../ui';
 
 const property = {
 	imageUrls: [
@@ -96,6 +96,15 @@ export function Details() {
 						</Box>
 					</Stack>
 					<AddProductToCart />
+
+					<Button
+						rounded={'md'}
+						mt={8}
+						size={'md'}
+						color={'blue.500'}
+						textTransform={'uppercase'}>
+						Add to cart
+					</Button>
 				</Stack>
 			</SimpleGrid>
 		</Container>

@@ -1,4 +1,4 @@
-import { EditIcon } from '@chakra-ui/icons';
+import { SettingsIcon } from '@chakra-ui/icons';
 import { Button, Link as ChakraLink } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ export function AdminButton() {
 			<Button
 				size='sm'
 				colorScheme='yellow'
-				rightIcon={<EditIcon />}
+				rightIcon={<SettingsIcon />}
 				variant={'solid'}>
 				Edit
 			</Button>
