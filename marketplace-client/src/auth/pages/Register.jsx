@@ -12,7 +12,7 @@ import {
 	FormErrorMessage,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { useForm } from '../../hooks';
+import { useAuthStore, useForm } from '../../hooks';
 import { useState } from 'react';
 
 const initialState = {
@@ -28,6 +28,7 @@ const formValidations = {
 };
 
 export function Register() {
+	const { startRegister } = useAuthStore();
 	const [formSubmitted, setFormSubmitted] = useState(false);
 
 	const {
@@ -45,7 +46,8 @@ export function Register() {
 		event.preventDefault();
 		setFormSubmitted(true);
 		if (!isFormValid) return;
-		console.log({ formState });
+
+		startRegister({ email, name, password, username: email });
 
 		setFormSubmitted(false);
 	};

@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { ArrowBackIcon } from '@chakra-ui/icons';
+import { useAuthStore } from '../../hooks';
 
 function MenuItemLink({ children, to, color = 'black' }) {
 	return (
@@ -33,6 +34,7 @@ function MenuItemLink({ children, to, color = 'black' }) {
 }
 
 export function NavBar() {
+	const { user, startLogout } = useAuthStore();
 	return (
 		<>
 			<Box bg={'black'} px={4}>
@@ -50,7 +52,7 @@ export function NavBar() {
 					</HStack>
 					<Flex alignItems={'center'}>
 						<Text color={'white'} fontSize={'md'} mr={5}>
-							Nombre.User
+							{user.name}
 						</Text>
 						<Menu>
 							<MenuButton
@@ -67,10 +69,15 @@ export function NavBar() {
 								</MenuItemLink>
 								<MenuItemLink to={'/cart'}>Cart</MenuItemLink>
 								<MenuItemLink>Orders</MenuItemLink>
+								{user.isAdmin && (
+									<MenuItemLink to={'/products/admin/'}>
+										Products Manager 🔒
+									</MenuItemLink>
+								)}
 								<MenuDivider />
 								<MenuItem
 									color={'red.500'}
-									onClick={() => alert('Afuera')}>
+									onClick={() => startLogout()}>
 									<ArrowBackIcon /> Logout
 								</MenuItem>
 							</MenuList>

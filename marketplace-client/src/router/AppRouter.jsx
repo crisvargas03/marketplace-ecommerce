@@ -1,9 +1,10 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { ProductsRoutes } from '../products';
 import { AuthRoutes } from '../auth';
+import { useAuthStore } from '../hooks';
 
 export function AppRouter() {
-	const status = 'authenticated';
+	const { status } = useAuthStore();
 	return (
 		<Routes>
 			{status === 'authenticated' ? (

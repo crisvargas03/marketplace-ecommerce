@@ -1,6 +1,7 @@
 import { Box, Divider, IconButton, Image, Text } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import { AdminButton, MoreDetailsButton, CategoriesBadges } from '../../ui';
+import { useAuthStore } from '../../hooks';
 
 const property = {
 	imageUrls: [
@@ -14,10 +15,9 @@ const property = {
 	category: ['category 1', 'category 2', 'category 3'],
 };
 
-const isAdmin = true;
-
 export function ProductCard() {
 	// TODO: Read data from props {name, imageUrls, description ...etc}
+	const { user } = useAuthStore();
 	const productAvailable = property.quantity === 0;
 
 	const setQuantityColor = quantity => {
@@ -67,7 +67,7 @@ export function ProductCard() {
 				<Box display='flex' mt='2' justifyContent='space-between'>
 					<Box mt='3'>${property.price}</Box>
 					<Box mt='3'>
-						{isAdmin ? <AdminButton /> : <MoreDetailsButton />}
+						{user.isAdmin ? <AdminButton /> : <MoreDetailsButton />}
 					</Box>
 				</Box>
 			</Box>
