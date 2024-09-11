@@ -7,7 +7,8 @@
         public string Address { get; set; } = string.Empty;
         public double TotalPrice { get; set; }
 
-        public User User { get; set; } = new User();
-        public OrderStatus OrderStatus { get; set; } = new OrderStatus();
+        public virtual User User { get; set; } = new User();
+        public virtual OrderStatus OrderStatus { get; set; } = new OrderStatus();
+        public virtual ICollection<OrderItems> OrderItems { get; set; } = [];
     }
 }

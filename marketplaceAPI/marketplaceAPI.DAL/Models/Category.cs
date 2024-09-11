@@ -3,6 +3,6 @@
     public class Category : BaseEntity<int>
     {
         public string Description { get; set; } = string.Empty;
-        public ICollection<Product> Products { get; set; } = [];
+        public virtual ICollection<ProductCategory> ProductCategories { get; set; } = [];
     }
 }

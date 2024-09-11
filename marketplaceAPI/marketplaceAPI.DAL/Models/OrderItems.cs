@@ -7,7 +7,7 @@
         public int Quantity { get; set; }
         public double Price { get; set; }
 
-        public Order Order { get; set; } = new Order();
-        public Product Product { get; set; } = new Product();
+        public virtual Order Order { get; set; } = new Order();
+        public virtual Product Product { get; set; } = new Product();
     }
 }

@@ -8,6 +8,8 @@
         public string Password { get; set; } = string.Empty;
         public int RoleId { get; set; }
 
-        public UserRole Role { get; set; } = new UserRole();
+        public virtual UserRole Role { get; set; } = new UserRole();
+        public virtual ICollection<Order> Orders { get; set; } = [];
+        public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; } = [];
     }
 }

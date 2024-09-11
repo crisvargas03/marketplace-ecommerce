@@ -13,7 +13,7 @@ namespace marketplaceAPI.DAL.Context
         public DbSet<ProductCategory> ProductCategory => Set<ProductCategory>();
         public DbSet<ProductPhoto> ProductPhoto => Set<ProductPhoto>();
         public DbSet<ShoppingCart> ShoppingCart => Set<ShoppingCart>();
-        public DbSet<ShoppingCartItem> shoppingCartItem => Set<ShoppingCartItem>();
+        public DbSet<ShoppingCartItem> ShoppingCartItem => Set<ShoppingCartItem>();
         public DbSet<User> User => Set<User>();
         public DbSet<UserRole> UserRole => Set<UserRole>();
 

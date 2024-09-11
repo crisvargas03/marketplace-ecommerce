@@ -4,7 +4,7 @@
     {
         public Guid UserId { get; set; }
 
-        public User User { get; set; } = new User();
-        public ICollection<ShoppingCartItem> ShoppingCartItems { get; set; } = [];
+        public virtual User User { get; set; } = new User();
+        public virtual ICollection<ShoppingCartItem> ShoppingCartItems { get; set; } = [];
     }
 }

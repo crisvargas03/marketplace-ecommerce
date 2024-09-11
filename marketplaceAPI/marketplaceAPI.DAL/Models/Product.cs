@@ -7,7 +7,9 @@
         public double Price { get; set; }
         public int Quantity { get; set; }
 
-        public ICollection<Category> Categories { get; set; } = [];
-        public ICollection<ProductPhoto> ProductPhotos { get; set; } = [];
+        public virtual OrderItems OrderItems { get; set; } = new OrderItems();
+        public virtual ICollection<ProductCategory> ProductCategories { get; set; } = [];
+        public virtual ICollection<ProductPhoto> ProductPhotos { get; set; } = [];
+        public virtual ICollection<ShoppingCartItem> ShoppingCartItems { get; set; } = [];
     }
 }

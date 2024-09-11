@@ -5,6 +5,6 @@
         public string Path { get; set; } = string.Empty;
         public long ProductId { get; set; }
 
-        public Product Product { get; set; } = new Product();
+        public virtual Product Product { get; set; } = new Product();
     }
 }
