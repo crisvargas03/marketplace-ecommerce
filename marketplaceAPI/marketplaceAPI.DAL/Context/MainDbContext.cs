@@ -1,5 +1,6 @@
 ﻿using marketplaceAPI.DAL.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace marketplaceAPI.DAL.Context
 {
@@ -22,7 +23,18 @@ namespace marketplaceAPI.DAL.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            var assembly = Assembly.GetExecutingAssembly();
+            var entitiesConfigs = assembly.GetTypes()
+                .Where(t => t.Namespace == "marketplaceAPI.DAL.ModelsConfiguration"
+                && t.GetInterfaces().Any(i => i.IsGenericType
+                    && i.GetGenericTypeDefinition() == typeof(IEntityTypeConfiguration<>))
+                ).ToList();
 
+            foreach (var entityConfig in entitiesConfigs)
+            {
+                dynamic configurationInstance = Activator.CreateInstance(entityConfig)!;
+                modelBuilder.ApplyConfiguration(configurationInstance);
+            }
         }
     }
 }
