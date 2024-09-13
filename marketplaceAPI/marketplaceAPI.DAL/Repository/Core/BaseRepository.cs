@@ -9,9 +9,9 @@ namespace marketplaceAPI.DAL.Repository.Core
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        private readonly MainDbContext _context;
-        private DbSet<T> _dbSet;
-        public BaseRepository(MainDbContext context, DbSet<T> dbSet)
+        protected MainDbContext _context;
+        protected DbSet<T> _dbSet;
+        public BaseRepository(MainDbContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();
@@ -63,7 +63,6 @@ namespace marketplaceAPI.DAL.Repository.Core
             try
             {
                 await _context.AddAsync(entity);
-                await SaveAsync();
             }
             catch (Exception ex)
             {
@@ -88,7 +87,6 @@ namespace marketplaceAPI.DAL.Repository.Core
             try
             {
                 _context.Update(entity);
-                await SaveAsync();
             }
             catch (Exception ex)
             {
@@ -101,17 +99,11 @@ namespace marketplaceAPI.DAL.Repository.Core
             try
             {
                 _context.Update(entity);
-                await SaveAsync();
             }
             catch (Exception ex)
             {
                 throw new DataLayerException($"FAILDED at Update {entity.GetType()} - {ex.Message}");
             }
-        }
-
-        public virtual async Task SaveAsync()
-        {
-            await _context.SaveChangesAsync();
         }
     }
 }

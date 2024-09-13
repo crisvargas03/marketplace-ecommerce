@@ -6,8 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace marketplaceAPI.DAL.Repository
 {
-    public class UserRepository(MainDbContext context, DbSet<User> dbSet) :
-        BaseRepository<User>(context, dbSet), IUserInterface
+    public class UserRepository : BaseRepository<User>, IUserInterface
     {
+        public UserRepository(MainDbContext context) : base(context)
+        {
+        }
     }
 }
