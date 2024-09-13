@@ -1,4 +1,7 @@
-﻿using marketplaceAPI.DAL.Context;
+﻿using marketplaceAPI.BLL.Interfaces;
+using marketplaceAPI.BLL.Services;
+using marketplaceAPI.DAL.Context;
+using marketplaceAPI.DAL.Repository.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 
 namespace marketplaceAPI.Configurations
@@ -26,16 +29,18 @@ namespace marketplaceAPI.Configurations
 
         private static void ConfigurateServices(this IServiceCollection services)
         {
+            services.AddScoped<IUserService, UserServices>();
         }
 
-        private static void ConfigurateRepositories(this IServiceCollection services)
+        private static void ConfigurateUnitOfWork(this IServiceCollection services)
         {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         public static void ApplyServicesConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
             services.ConfigurateDbContext(configuration);
-            services.ConfigurateRepositories();
+            services.ConfigurateUnitOfWork();
             services.ConfigurateServices();
             services.ConfigurateCors();
         }

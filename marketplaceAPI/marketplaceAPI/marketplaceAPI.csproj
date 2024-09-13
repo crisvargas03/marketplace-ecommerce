@@ -15,10 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\marketplaceAPI.BLL\marketplaceAPI.BLL.csproj" />
     <ProjectReference Include="..\marketplaceAPI.DAL\marketplaceAPI.DAL.csproj" />
   </ItemGroup>
 
