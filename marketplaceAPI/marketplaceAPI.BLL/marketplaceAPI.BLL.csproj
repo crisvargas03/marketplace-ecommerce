@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <Using Include="BCrypt.Net.BCrypt" Alias="Bcrypt"/>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\marketplaceAPI.DAL\marketplaceAPI.DAL.csproj" />
   </ItemGroup>
 

@@ -4,6 +4,6 @@
     {
         public string RoleName { get; set; } = string.Empty;
 
-        public virtual ICollection<User> User { get; set; } = [];
+        public virtual ICollection<User>? User { get; set; }
     }
 }

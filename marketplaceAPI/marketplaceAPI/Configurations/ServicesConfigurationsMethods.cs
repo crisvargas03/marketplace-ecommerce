@@ -1,11 +1,11 @@
 ﻿using marketplaceAPI.BLL.DTOs.UtilsModels;
 using marketplaceAPI.BLL.Interfaces;
+using marketplaceAPI.BLL.Mapper;
 using marketplaceAPI.BLL.Services;
 using marketplaceAPI.DAL.Context;
 using marketplaceAPI.DAL.Repository.UnitOfWork;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -109,6 +109,11 @@ namespace marketplaceAPI.Configurations
             });
         }
 
+        private static void ConfigurateAutomapper(this IServiceCollection services) 
+        {
+            services.AddAutoMapper(typeof(MapperConfigurations));
+        }
+
         public static void ApplyServicesConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
             services.ConfigurateAuthentication(configuration);
@@ -116,6 +121,7 @@ namespace marketplaceAPI.Configurations
             services.ConfigurateDbContext(configuration);
             services.ConfigurateSwaggerAuth();
             services.ConfigurateUnitOfWork();
+            services.ConfigurateAutomapper();
             services.ConfigurateServices();
             services.ConfigurateCors();
         }

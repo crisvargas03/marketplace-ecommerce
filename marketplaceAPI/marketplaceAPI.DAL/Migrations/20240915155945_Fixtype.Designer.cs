@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using marketplaceAPI.DAL.Context;
 
@@ -11,9 +12,11 @@ using marketplaceAPI.DAL.Context;
 namespace marketplaceAPI.DAL.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    partial class MainDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240915155945_Fixtype")]
+    partial class Fixtype
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,7 +67,7 @@ namespace marketplaceAPI.DAL.Migrations
                         {
                             Id = 1001,
                             CreatedBy = "Dataseed",
-                            CreationDate = new DateTime(2024, 9, 15, 12, 6, 25, 899, DateTimeKind.Local).AddTicks(825),
+                            CreationDate = new DateTime(2024, 9, 15, 11, 59, 44, 956, DateTimeKind.Local).AddTicks(6783),
                             Description = "Tools",
                             IsDeleted = false
                         },
@@ -72,7 +75,7 @@ namespace marketplaceAPI.DAL.Migrations
                         {
                             Id = 1002,
                             CreatedBy = "Dataseed",
-                            CreationDate = new DateTime(2024, 9, 15, 12, 6, 25, 899, DateTimeKind.Local).AddTicks(845),
+                            CreationDate = new DateTime(2024, 9, 15, 11, 59, 44, 956, DateTimeKind.Local).AddTicks(6801),
                             Description = "Electronics",
                             IsDeleted = false
                         },
@@ -80,7 +83,7 @@ namespace marketplaceAPI.DAL.Migrations
                         {
                             Id = 1003,
                             CreatedBy = "Dataseed",
-                            CreationDate = new DateTime(2024, 9, 15, 12, 6, 25, 899, DateTimeKind.Local).AddTicks(847),
+                            CreationDate = new DateTime(2024, 9, 15, 11, 59, 44, 956, DateTimeKind.Local).AddTicks(6803),
                             Description = "Health",
                             IsDeleted = false
                         });
@@ -229,15 +232,15 @@ namespace marketplaceAPI.DAL.Migrations
                         {
                             Id = 1001,
                             CreatedBy = "Dataseed",
-                            CreationDate = new DateTime(2024, 9, 15, 12, 6, 25, 900, DateTimeKind.Local).AddTicks(6817),
+                            CreationDate = new DateTime(2024, 9, 15, 11, 59, 44, 957, DateTimeKind.Local).AddTicks(4251),
                             Description = "Open",
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = 2002,
+                            Id = 1002,
                             CreatedBy = "Dataseed",
-                            CreationDate = new DateTime(2024, 9, 15, 12, 6, 25, 900, DateTimeKind.Local).AddTicks(6828),
+                            CreationDate = new DateTime(2024, 9, 15, 11, 59, 44, 957, DateTimeKind.Local).AddTicks(4258),
                             Description = "Sent",
                             IsDeleted = false
                         });
@@ -527,17 +530,17 @@ namespace marketplaceAPI.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 900,
+                            Id = 3003,
                             CreatedBy = "Dataseed",
-                            CreationDate = new DateTime(2024, 9, 15, 12, 6, 25, 903, DateTimeKind.Local).AddTicks(6445),
+                            CreationDate = new DateTime(2024, 9, 15, 11, 59, 44, 958, DateTimeKind.Local).AddTicks(2812),
                             IsDeleted = false,
                             RoleName = "Admin"
                         },
                         new
                         {
-                            Id = 200,
-                            CreatedBy = "Dataseed",
-                            CreationDate = new DateTime(2024, 9, 15, 12, 6, 25, 903, DateTimeKind.Local).AddTicks(6453),
+                            Id = 4004,
+                            CreatedBy = "Dataeed",
+                            CreationDate = new DateTime(2024, 9, 15, 11, 59, 44, 958, DateTimeKind.Local).AddTicks(2820),
                             IsDeleted = false,
                             RoleName = "Client"
                         });
