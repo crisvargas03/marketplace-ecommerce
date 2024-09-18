@@ -8,5 +8,6 @@ namespace marketplaceAPI.BLL.Interfaces
     {
         Task<APIResponse> Login(UserLoginWithCredsDto userLogin);
         Task<APIResponse> Register(UserRegisterWithCredsDto userRegister);
+        Task<APIResponse> RenewToken(Guid userId);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using marketplaceAPI.BLL.DTOs.AuthModels;
 using marketplaceAPI.BLL.Interfaces;
+using marketplaceAPI.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,6 +44,19 @@ namespace marketplaceAPI.Controllers
             {
                 { IsSuccess: true } => Ok(servicesResult),
                 _ => BadRequest(servicesResult)
+            };
+        }
+
+        [HttpGet("renew")]
+        [Authorize]
+        public async Task<IActionResult> RenewTokenAction()
+        {
+            var (userId, roleId) = HttpContext.GetUserClaims();
+            var serviceResult = await _userService.RenewToken(Guid.Parse(userId));
+            return serviceResult switch
+            {
+                { IsSuccess: true } => Ok(serviceResult),
+                _ => BadRequest(serviceResult)
             };
         }
     }

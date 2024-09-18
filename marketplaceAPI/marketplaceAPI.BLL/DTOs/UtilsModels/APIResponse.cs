@@ -17,12 +17,24 @@ namespace marketplaceAPI.BLL.DTOs.UtilsModels
         }
         public APIResponse FailedResponse(HttpStatusCode statusCode, string error)
         {
-            this.StatusCode = statusCode;
-            this.Payload = null;
-            this.IsSuccess = false;
-            this.ErrorMessages!.Add(error);
+            return new APIResponse
+            {
+                StatusCode = statusCode,
+                Payload = null,
+                IsSuccess = false,
+                ErrorMessages = [error]
+            };
+        }
 
-            return this;
+        public APIResponse SuccesResponse(HttpStatusCode statusCode, object payload)
+        {
+            return new APIResponse 
+            {
+                StatusCode = statusCode,
+                Payload = payload,
+                IsSuccess = true,
+                ErrorMessages = null
+            };
         }
     }
 }

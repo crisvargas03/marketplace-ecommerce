@@ -1,4 +1,5 @@
 using marketplaceAPI.Configurations;
+using marketplaceAPI.Middelwares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 
@@ -26,6 +27,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseMiddleware<VerifyTokenMiddleware>();
 app.MapControllers();
 
 app.Run();
